@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Skybound</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="titulo">Skybound</div>
+    <div id="juego">
+      <div id="fondo"></div>
+      <div id="avion">
+        <div id="puntoDisparo"></div>
+      </div>
+    </div>
+    <div id="controles">
+      <div id="distancia">Distancia: 0</div>
+      <button id="iniciar" class="boton-juego">Iniciar Juego</button>
+      <button id="stop" class="boton-juego">Detener Juego</button>
+      <button id="toggle-music" class="boton-juego">Activar Música</button>
+    </div>
+    
+    <!-- Scripts al final del body para mejorar el rendimiento -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

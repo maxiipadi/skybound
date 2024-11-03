@@ -1,0 +1,146 @@
+/* Estilo General */
+body {
+  perspective: 800px;
+  font-family: 'Press Start 2P', sans-serif; 
+  color: #ffffff;
+  background-color: #1e1e1e; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Título */
+#titulo {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffd700;
+  margin: 20px 0;
+  transform: rotateX(45deg);
+  transform-style: preserve-3d;
+  animation: girar 5s linear infinite;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+/* Juego */
+#juego {
+  width: 600px;
+  height: 400px;
+  background-color: #0bd7e6;
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto;
+  background-image: 
+    url("nubes.png"),         /* Capa de nubes */
+    url("montañas.jpg");      /* Capa de montañas */
+  background-repeat: repeat-x, repeat-x;
+  background-size: 12% auto, 40% auto;
+  background-position: top center, bottom center;
+  animation: moverFondo 10s linear infinite;
+  animation-play-state: paused;
+}
+
+/* Botones de Juego (Iniciar y Detener) */
+.boton-juego {  /* Clase común para ambos botones */
+  display: inline-block;
+  margin: 10px 10px; /* Margen superior e inferior de 10px y entre botones */
+  padding: 15px 30px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #ff6347; 
+  color: #fff; 
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px #cc4d36;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.boton-juego:hover {
+  background-color: #ff8565;
+  transform: scale(1.05);
+}
+
+.boton-juego:active {
+  transform: scale(1.02);
+  box-shadow: 0 2px #cc4d36;
+}
+
+/* Controles (Distancia y Botones) */
+#controles {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#distancia {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 0px;
+  margin-right: 0;
+  background-color: #333;
+  color: #32CD32; 
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Animación del Fondo */
+@keyframes moverFondo {
+  0% { background-position: 0 0, 0 100%; }
+  100% { background-position: -100% 0, -100% 100%; }
+}
+
+/* Avión */
+#avion {
+  width: 100px; /* Ajusta el tamaño según lo necesites */
+  height: 120px;
+  background-image: url("avion.png");
+  background-size: cover;
+  position: absolute; /* Posición absoluta dentro de #juego */
+  left: 10px;
+  top: 10%;
+  margin-top: 20%;
+  transition: transform 0.1s ease;
+  background-color: transparent;
+}
+
+/* Punto de Disparo */
+#puntoDisparo {
+  position: absolute;
+  right: -10px; /* Ajusta según el tamaño del avión */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  /* Opcional: Añade una pequeña marca para visualizar el punto de disparo */
+  /* background-color: red; */
+}
+
+/* Opcional: Estilo del Punto de Disparo para Depuración 
+#puntoDisparo::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  border-radius: 50%;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+  */
+
+/* Animación de Rotación */
+@keyframes girar {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(360deg); }
+}
+
+.proyectil {
+  width: 20px;          /* Ajusta el ancho */
+  height: 20px;         /* Ajusta la altura */
+  background-image: url("proyectil.png"); /* Ruta a la imagen del proyectil */
+  background-size: cover;
+  position: absolute;
+}
